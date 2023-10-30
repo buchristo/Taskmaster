@@ -1,10 +1,10 @@
-package com.buchristo.taskmaster;
+package com.buchristo.TaskMaster;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TaskmasterApplicationTests {
+class TaskMasterApplicationTests {
 
 	@Test
 	void contextLoads() {
