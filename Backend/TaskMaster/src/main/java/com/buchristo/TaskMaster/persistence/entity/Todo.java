@@ -1,4 +1,4 @@
-package com.buchristo.TaskMaster.persistence;
+package com.buchristo.TaskMaster.persistence.entity;
 
 import com.buchristo.TaskMaster.model.PriorityType;
 import jakarta.persistence.Entity;

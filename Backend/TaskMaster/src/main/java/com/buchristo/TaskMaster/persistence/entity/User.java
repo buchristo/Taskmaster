@@ -1,4 +1,4 @@
-package com.buchristo.TaskMaster.persistence;
+package com.buchristo.TaskMaster.persistence.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
