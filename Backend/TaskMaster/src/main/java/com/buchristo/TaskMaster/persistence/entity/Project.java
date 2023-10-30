@@ -16,11 +16,13 @@ public class Project {
     private String name;
     @OneToMany
     private Set<Todo> tasks;
+    private Long userId;
 
-    public Project(Long id, String name, Set<Todo> tasks) {
+    public Project(Long id, String name, Set<Todo> tasks, Long userId) {
         this.id = id;
         this.name = name;
         this.tasks = tasks;
+        this.userId = userId;
     }
 
     public Project() {

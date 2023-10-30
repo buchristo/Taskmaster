@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.util.Set;
-
 @Entity
 public class Todo {
 
@@ -16,12 +14,14 @@ public class Todo {
     private String title;
     private String description;
     private PriorityType priorityType;
+    private Long ProjectId;
 
-    public Todo(Long id, String title, String description, PriorityType priorityType) {
+    public Todo(Long id, String title, String description, PriorityType priorityType, Long projectId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.priorityType = priorityType;
+        ProjectId = projectId;
     }
 
     public Todo() {
