@@ -1,6 +1,6 @@
 package com.buchristo.TaskMaster.logic;
 
-import com.buchristo.TaskMaster.persistence.entity.User;
+import com.buchristo.TaskMaster.persistence.data.User;
 import com.buchristo.TaskMaster.persistence.repository.UserRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,6 @@
-package com.buchristo.TaskMaster.persistence.entity;
+package com.buchristo.TaskMaster.persistence.data;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -14,15 +11,16 @@ public class Project {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany
+    @OneToMany(mappedBy = "project")
     private Set<Todo> tasks;
-    private Long userId;
+    @ManyToOne
+    private User user;
 
-    public Project(Long id, String name, Set<Todo> tasks, Long userId) {
+    public Project(Long id, String name, Set<Todo> tasks, User user) {
         this.id = id;
         this.name = name;
         this.tasks = tasks;
-        this.userId = userId;
+        this.user = user;
     }
 
     public Project() {
@@ -50,5 +48,13 @@ public class Project {
 
     public void setTasks(Set<Todo> tasks) {
         this.tasks = tasks;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

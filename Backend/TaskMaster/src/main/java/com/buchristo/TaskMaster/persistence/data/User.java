@@ -1,13 +1,11 @@
-package com.buchristo.TaskMaster.persistence.entity;
+package com.buchristo.TaskMaster.persistence.data;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -16,7 +14,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private Set<Project> projects;
 
     public User(Long id, String name, String email, String password, Set<Project> projects) {

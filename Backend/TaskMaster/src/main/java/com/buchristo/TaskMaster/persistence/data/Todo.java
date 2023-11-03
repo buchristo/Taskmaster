@@ -1,9 +1,9 @@
-package com.buchristo.TaskMaster.persistence.entity;
+package com.buchristo.TaskMaster.persistence.data;
 
-import com.buchristo.TaskMaster.model.PriorityType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Todo {
@@ -14,14 +14,17 @@ public class Todo {
     private String title;
     private String description;
     private PriorityType priorityType;
-    private Long ProjectId;
+    @ManyToOne
+    private Project project;
+    private boolean isCompleted;
 
-    public Todo(Long id, String title, String description, PriorityType priorityType, Long projectId) {
+    public Todo(Long id, String title, String description, PriorityType priorityType, Project project, boolean isCompleted) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.priorityType = priorityType;
-        ProjectId = projectId;
+        this.project = project;
+        this.isCompleted = isCompleted;
     }
 
     public Todo() {
@@ -57,5 +60,21 @@ public class Todo {
 
     public void setPriorityType(PriorityType priorityType) {
         this.priorityType = priorityType;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
     }
 }

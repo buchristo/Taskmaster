@@ -1,4 +1,4 @@
-package com.buchristo.TaskMaster.model;
+package com.buchristo.TaskMaster.persistence.data;
 
 public enum PriorityType {
     HIGH, MEDIUM, LOW
