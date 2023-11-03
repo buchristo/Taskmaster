@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:h2:./taskmaster.h2;AUTO_SERVER=true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

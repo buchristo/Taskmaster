@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Database H2 TestFiles ###
+taskmaster.h2.lock.db
+taskmaster.h2.mv.db
