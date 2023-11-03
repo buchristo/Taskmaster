@@ -18,6 +18,9 @@ public class Todo {
     private Project project;
     private boolean isCompleted;
 
+    public Todo() {
+    }
+
     public Todo(Long id, String title, String description, PriorityType priorityType, Project project, boolean isCompleted) {
         this.id = id;
         this.title = title;
@@ -25,9 +28,6 @@ public class Todo {
         this.priorityType = priorityType;
         this.project = project;
         this.isCompleted = isCompleted;
-    }
-
-    public Todo() {
     }
 
     public Long getId() {
@@ -74,7 +74,7 @@ public class Todo {
         return isCompleted;
     }
 
-    public void setCompleted(boolean completed) {
+    public void setisCompleted(boolean completed) {
         isCompleted = completed;
     }
 }

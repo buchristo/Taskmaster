@@ -35,3 +35,4 @@ build/
 ### Database H2 TestFiles ###
 taskmaster.h2.lock.db
 taskmaster.h2.mv.db
+taskmaster.h2.trace.db

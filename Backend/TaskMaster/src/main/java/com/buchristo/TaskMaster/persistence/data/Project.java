@@ -2,6 +2,7 @@ package com.buchristo.TaskMaster.persistence.data;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,14 +17,14 @@ public class Project {
     @ManyToOne
     private User user;
 
+    public Project() {
+    }
+
     public Project(Long id, String name, Set<Todo> tasks, User user) {
         this.id = id;
         this.name = name;
         this.tasks = tasks;
         this.user = user;
-    }
-
-    public Project() {
     }
 
     public Long getId() {

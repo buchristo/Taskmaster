@@ -14,13 +14,20 @@ public class TodoService {
     public TodoService(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
     }
-    public Todo create(Todo todo){
+
+    public List<Todo> findAll() {
+        return todoRepository.findAll();
+    }
+
+    public Todo create(Todo todo) {
         return todoRepository.save(todo);
     }
-    public List<Todo> findByProjectId(Long id){
+
+    public List<Todo> findByProjectId(Long id) {
         return todoRepository.findByProjectId(id);
     }
-    public void delete(Long id){
+
+    public void delete(Long id) {
         todoRepository.deleteById(id);
     }
 }

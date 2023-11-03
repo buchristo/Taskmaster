@@ -2,10 +2,11 @@ package com.buchristo.TaskMaster.persistence.data;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "users")
+@Table(name = "`user`")
 public class User {
 
     @Id
@@ -17,15 +18,15 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Project> projects;
 
+    public User() {
+    }
+
     public User(Long id, String name, String email, String password, Set<Project> projects) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.projects = projects;
-    }
-
-    public User() {
     }
 
     public Long getId() {

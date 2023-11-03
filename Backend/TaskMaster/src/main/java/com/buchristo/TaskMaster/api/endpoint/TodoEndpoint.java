@@ -15,6 +15,11 @@ public class TodoEndpoint {
         this.todoService = todoService;
     }
 
+    @GetMapping
+    List<Todo> findAllTodos() {
+        return todoService.findAll();
+    }
+
     @PostMapping
     Todo create(@RequestBody Todo todo) {
         return todoService.create(todo);
@@ -27,6 +32,6 @@ public class TodoEndpoint {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
-
+        todoService.delete(id);
     }
 }
