@@ -2,7 +2,9 @@ package com.buchristo.TaskMaster.api.endpoint;
 
 import com.buchristo.TaskMaster.api.exception.ElementNotFoundException;
 import com.buchristo.TaskMaster.logic.ProjectService;
+import com.buchristo.TaskMaster.logic.UserService;
 import com.buchristo.TaskMaster.persistence.data.Project;
+import com.buchristo.TaskMaster.persistence.data.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,19 +14,19 @@ import java.util.List;
 public class ProjectEndpoint {
 
     private final ProjectService projectService;
+    private final UserService userService;
 
-    public ProjectEndpoint(ProjectService projectService) {
+    public ProjectEndpoint(ProjectService projectService, UserService userService) {
         this.projectService = projectService;
+        this.userService = userService;
     }
 
-    @PostMapping
-    Project createProject(@RequestBody Project project) {
-        return projectService.create(project);
-    }
-
-    @GetMapping
-    List<Project> findAllProjects() {
-        return projectService.findAll();
+    @PostMapping("/addToUser/{userId}")
+    Project assignProjectToUser(@RequestBody Project project, @PathVariable Long userId) throws ElementNotFoundException {
+        User user = userService.findById(userId)
+                .orElseThrow(ElementNotFoundException::new);
+        projectService.addProjectToUser(project, user);
+        return project;
     }
 
     @GetMapping("/{id}")

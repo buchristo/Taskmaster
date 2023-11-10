@@ -16,13 +16,11 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
-    public List<Todo> findAll() {
-        return todoRepository.findAll();
-    }
     public Todo addTodoToProject(Todo todo, Project project) {
         todo.setProject(project);
         return todoRepository.save(todo);
     }
+
     public List<Todo> findByProjectId(Long id) {
         return todoRepository.findByProjectId(id);
     }

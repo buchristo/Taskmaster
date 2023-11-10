@@ -1,6 +1,7 @@
 package com.buchristo.TaskMaster.logic;
 
 import com.buchristo.TaskMaster.persistence.data.Project;
+import com.buchristo.TaskMaster.persistence.data.User;
 import com.buchristo.TaskMaster.persistence.repository.ProjectRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +16,9 @@ public class ProjectService {
         this.projectRepository = projectRepository;
     }
 
-    public Project create(Project project) {
+    public Project addProjectToUser(Project project, User user){
+        project.setUser(user);
         return projectRepository.save(project);
-    }
-
-    public List<Project> findAll() {
-        return projectRepository.findAll();
     }
 
     public Optional<Project> findById(Long id) {
