@@ -1,5 +1,6 @@
 package com.buchristo.TaskMaster.persistence.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -15,6 +16,7 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Set<Todo> tasks;
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     public Project() {

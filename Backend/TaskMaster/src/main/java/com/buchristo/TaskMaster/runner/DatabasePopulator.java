@@ -26,6 +26,10 @@ public class DatabasePopulator {
     ApplicationRunner populator(UserRepository userRepository, ProjectRepository projectRepository, TodoRepository todoRepository) {
         return args -> {
 
+            userRepository.saveAll(users);
+            projectRepository.saveAll(projects);
+            todoRepository.saveAll(todos);
+
             User testUser = users.get(0);
             User ralph = users.get(1);
 
@@ -39,10 +43,19 @@ public class DatabasePopulator {
             Todo ralphTodo2 = todos.get(4);
 
             testMaster.setTasks(Set.of(test1, test2, test3));
+            test1.setProject(testMaster);
+            test2.setProject(testMaster);
+            test3.setProject(testMaster);
+
             ralphsProject.setTasks(Set.of(ralphTodo1, ralphTodo2));
+            ralphTodo1.setProject(ralphsProject);
+            ralphTodo2.setProject(ralphsProject);
 
             testUser.setProjects(Set.of(testMaster));
+            testMaster.setUser(testUser);
+
             ralph.setProjects(Set.of(ralphsProject));
+            ralphsProject.setUser(ralph);
 
             todoRepository.save(test1);
             todoRepository.save(test2);

@@ -1,5 +1,6 @@
 package com.buchristo.TaskMaster.persistence.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,6 +16,7 @@ public class Todo {
     private String description;
     private PriorityType priorityType;
     @ManyToOne
+    @JsonIgnore
     private Project project;
     private boolean isCompleted;
 
