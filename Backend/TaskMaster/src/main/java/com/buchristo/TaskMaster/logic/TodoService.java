@@ -25,6 +25,11 @@ public class TodoService {
         return todoRepository.findByProjectId(id);
     }
 
+    public Todo updateTodoFromProject(Todo todo, Project project) {
+        todo.setProject(project);
+        return todoRepository.save(todo);
+    }
+
     public void delete(Long id) {
         todoRepository.deleteById(id);
     }

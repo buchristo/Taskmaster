@@ -34,6 +34,14 @@ public class TodoEndpoint {
         return todoService.findByProjectId(id);
     }
 
+    @PutMapping("/update/{projectId}")
+    Todo updateTodoFromProject(@RequestBody Todo todo, @PathVariable Long projectId) throws ElementNotFoundException {
+        Project project = projectService.findById(projectId)
+                .orElseThrow(ElementNotFoundException::new);
+        todoService.updateTodoFromProject(todo, project);
+        return todo;
+    }
+
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
         todoService.delete(id);

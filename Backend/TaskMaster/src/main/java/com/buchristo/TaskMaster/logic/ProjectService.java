@@ -16,7 +16,7 @@ public class ProjectService {
         this.projectRepository = projectRepository;
     }
 
-    public Project addProjectToUser(Project project, User user){
+    public Project addProjectToUser(Project project, User user) {
         project.setUser(user);
         return projectRepository.save(project);
     }
@@ -27,6 +27,11 @@ public class ProjectService {
 
     public List<Project> findByUserId(Long id) {
         return projectRepository.findByUserId(id);
+    }
+
+    public Project updateProjectFromUser(Project project, User user) {
+        project.setUser(user);
+        return projectRepository.save(project);
     }
 
     public void delete(Long id) {

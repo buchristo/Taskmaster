@@ -40,6 +40,14 @@ public class ProjectEndpoint {
         return projectService.findByUserId(id);
     }
 
+    @PutMapping("/update/{userId}")
+    Project updateProjectFromUser(@RequestBody Project project, @PathVariable Long userId) throws Exception {
+        User user = userService.findById(userId)
+                .orElseThrow(ElementNotFoundException::new);
+        projectService.updateProjectFromUser(project, user);
+        return project;
+    }
+
     @DeleteMapping("/{id}")
     void deleteProject(@PathVariable Long id) {
         projectService.delete(id);
