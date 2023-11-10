@@ -2,17 +2,16 @@ package com.buchristo.TaskMaster.persistence.data;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "`user`")
+@Table(name = "_user")
 public class User {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
+    private String username;
     private String email;
     private String password;
     @OneToMany(mappedBy = "user")
@@ -21,9 +20,9 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String email, String password, Set<Project> projects) {
+    public User(Long id, String username, String email, String password, Set<Project> projects) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.projects = projects;
@@ -37,12 +36,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public String getEmail() {

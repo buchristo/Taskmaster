@@ -33,9 +33,9 @@ public class UserEndpoint {
                 .orElseThrow(ElementNotFoundException::new);
     }
 
-    @GetMapping("/name")
+    @GetMapping("/filter")
     User getByName(@RequestParam String name) throws ElementNotFoundException {
-        return userService.findByName(name)
+        return userService.findByUsername(name)
                 .orElseThrow(ElementNotFoundException::new);
     }
 

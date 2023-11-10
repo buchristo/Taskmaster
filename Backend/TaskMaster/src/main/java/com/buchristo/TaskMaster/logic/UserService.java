@@ -28,8 +28,8 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public Optional<User> findByName(String name) {
-        return Optional.ofNullable(userRepository.findByName(name));
+    public Optional<User> findByUsername(String name) {
+        return Optional.ofNullable(userRepository.findByUsername(name));
     }
 
     public void delete(Long id) {

@@ -7,10 +7,10 @@ spring:
 
 datasets:
   users:
-    - name: testington
+    - username: testington
       email: testington@testme.com
       password: pa$$w0rd
-    - name: ralph
+    - username: ralph
       email: ralph@gmail.com
       password: l33t
   projects:
