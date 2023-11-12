@@ -36,3 +36,6 @@ build/
 taskmaster.h2.lock.db
 taskmaster.h2.mv.db
 taskmaster.h2.trace.db
+
+### private RSA key ###
+certificates/private.pem
