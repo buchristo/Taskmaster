@@ -17,11 +17,6 @@ public class UserEndpoint {
         this.userService = userService;
     }
 
-    @PostMapping
-    User create(@RequestBody User user) {
-        return userService.create(user);
-    }
-
     @GetMapping
     List<User> getAll() {
         return userService.getAll();
