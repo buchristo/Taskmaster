@@ -5,38 +5,38 @@ spring:
     hibernate:
       ddl-auto: create-drop
 
-datasets:
-  users:
-    - username: testington
-      email: testington@testme.com
-      password: pa$$w0rd
-    - username: ralph
-      email: ralph@gmail.com
-      password: l33t
-  projects:
-    - name: TestMaster
-    - name: Ralphs Project
-  todos:
-    - title: test testmaster
-      description: need more tests than ever!
-      priorityType: HIGH
-      isCompleted: true
-    - title: create first todo
-      description: i want to test if i can create a todo
-      priorityType: LOW
-      isCompleted: true
-    - title: another title
-      description: cool description
-      priorityType: MEDIUM
-      isCompleted: false
-    - title: plan project
-      description: brainstorm features for my project
-      priorityType: HIGH
-      isCompleted: true
-    - title: laundry
-      description: do the laundry
-      priorityType: MEDIUM
-      isCompleted: false
+# datasets:
+#  users:
+#    - username: testington
+#      email: testington@testme.com
+#      password: pa$$w0rd
+#    - username: ralph
+#      email: ralph@gmail.com
+#      password: l33t
+#  projects:
+#    - name: TestMaster
+#    - name: Ralphs Project
+#  todos:
+#    - title: test testmaster
+#      description: need more tests than ever!
+#      priorityType: HIGH
+#      isCompleted: true
+#    - title: create first todo
+#      description: i want to test if i can create a todo
+#      priorityType: LOW
+#      isCompleted: true
+#    - title: another title
+#      description: cool description
+#      priorityType: MEDIUM
+#      isCompleted: false
+#    - title: plan project
+#      description: brainstorm features for my project
+#      priorityType: HIGH
+#      isCompleted: true
+#    - title: laundry
+#      description: do the laundry
+#      priorityType: MEDIUM
+#      isCompleted: false
 
 
 
