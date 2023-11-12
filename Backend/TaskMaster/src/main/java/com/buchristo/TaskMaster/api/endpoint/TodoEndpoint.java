@@ -5,7 +5,6 @@ import com.buchristo.TaskMaster.logic.ProjectService;
 import com.buchristo.TaskMaster.logic.TodoService;
 import com.buchristo.TaskMaster.persistence.data.Project;
 import com.buchristo.TaskMaster.persistence.data.Todo;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

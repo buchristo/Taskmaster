@@ -34,7 +34,7 @@ public class UserEndpoint {
                 .orElseThrow(ElementNotFoundException::new);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     void deleteById(@PathVariable Long id) {
         userService.delete(id);
     }
