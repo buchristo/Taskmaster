@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Set;
 
@@ -14,9 +15,9 @@ import java.util.Set;
 public class DatabasePopulator {
 
     @Bean
-    ApplicationRunner populator(UserRepository userRepository) {
+    ApplicationRunner populator(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         return args -> {
-            User testuser = new User(0, "test", "test@testington@gmail.com", password, Set.of(), Set.of("USER"));
+            User testuser = new User(0, "test", "test@testington@gmail.com", passwordEncoder.encode("password123"), Set.of(), Set.of("USER"));
             userRepository.save(testuser);
         };
     }
