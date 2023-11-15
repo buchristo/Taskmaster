@@ -1,4 +1,4 @@
-import './Header.css'
+import '../styles/Header.css'
 import { Outlet, Link } from 'react-router-dom'
 
 function Header() {

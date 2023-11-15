@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom"
+import '../styles/WelcomePage.css'
 
 export default function WelcomePage(){
 
     return <>
-    <div>
-        <h1>Welcome to TaskMaster!</h1>
+    <div className="WelcomePage">
+      <div className="welcome-content">
+        <h1>Welcome to TaskMaster</h1>
+        <p>TaskMaster is a simple application to track your projects and tasks!</p>
         <form>
             <label>
                 Username:
@@ -13,14 +16,15 @@ export default function WelcomePage(){
             <br />
             <label>
                 Password:
-                <input type="text"/>
+                <input type="password"/>
             </label>
             <br />
-            <button>Login</button>
-        </form>
-        <Link to="/register">
+            <button type="button">Login</button>
+            <Link to="/register">
             <button>Register</button>
-        </Link>
+            </Link>
+        </form>
+        </div>
     </div>
     </>
 }
