@@ -1,19 +1,12 @@
-.Header {
-  width: 100%;
-  background-color: rgb(76, 117, 219);
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 .Header nav ul {
   margin: 0;
   padding: 0;
+  width: 100%;
   list-style-type: none;
   display: flex;
   align-items: center;
   padding: 0.5rem;
-  background-color: rgb(76, 117, 219);
+  background-color: rgb(8, 26, 70);
   color: white;
   font-size: 1.5rem;
   font-weight: bold;

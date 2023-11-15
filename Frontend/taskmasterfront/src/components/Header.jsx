@@ -8,7 +8,7 @@ function Header() {
     <nav>
       <ul>
         <li className="grow">
-          <p>Hello</p>
+          <Link to="/">TaskMaster</Link>
         </li>
       </ul>
     </nav>
