@@ -8,7 +8,14 @@ function Header() {
     <nav>
       <ul>
         <li className="grow">
-          <Link to="/">TaskMaster</Link>
+          <Link to="/">
+            TaskMaster
+          </Link>
+        </li>
+        <li>
+          <Link to="/register">
+            <button type="button">Register</button>
+          </Link>
         </li>
       </ul>
     </nav>

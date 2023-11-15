@@ -1,7 +1,6 @@
 .Header nav ul {
   margin: 0;
   padding: 0;
-  width: 100%;
   list-style-type: none;
   display: flex;
   align-items: center;
@@ -15,6 +14,10 @@
 .Header nav button {
   padding: 0.7rem 1.7rem;
   font-weight: bold;
+}
+
+.Header nav ul li.grow {
+  flex-grow: 1;
 }
 
 .Header nav button:hover {

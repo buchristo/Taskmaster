@@ -6,6 +6,7 @@ import './index.css'
 import Header from './components/Header.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import WelcomePage from './pages/WelcomePage.jsx'
+import Register from './pages/Register.jsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <WelcomePage />
+      },
+      {
+        path: "/register",
+        element: <Register />
       }
     ],
     errorElement: <ErrorPage />

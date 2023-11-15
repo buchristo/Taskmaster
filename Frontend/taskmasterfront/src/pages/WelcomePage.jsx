@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export default function WelcomePage(){
 
@@ -5,11 +6,21 @@ export default function WelcomePage(){
     <div>
         <h1>Welcome to TaskMaster!</h1>
         <form>
-            <input type="text" placeholder="Username" />
-            <input type="text" placeholder="Password"/>
+            <label>
+                Username:
+                <input type="text"/>
+            </label>
+            <br />
+            <label>
+                Password:
+                <input type="text"/>
+            </label>
+            <br />
             <button>Login</button>
         </form>
-        <button>Register</button>
+        <Link to="/register">
+            <button>Register</button>
+        </Link>
     </div>
     </>
 }
