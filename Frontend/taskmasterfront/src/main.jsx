@@ -7,6 +7,7 @@ import Header from './components/Header.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import WelcomePage from './pages/WelcomePage.jsx'
 import Register from './pages/Register.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />
+      },
+      {
+        path: "/Dashboard",
+        element: <Dashboard />,
       }
     ],
     errorElement: <ErrorPage />
