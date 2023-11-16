@@ -1,16 +1,30 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import '../styles/WelcomePage.css'
-import { useState } from "react"
-import { login } from "../api/api";
+import { useState, useEffect } from "react"
+import { login, isAuthenticated } from "../api/api";
 
 export default function WelcomePage(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage ,setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
-    function handleLogin(e){
+    useEffect(() => {
+        if (isAuthenticated()){
+            navigate("/dashboard");
+        }
+    },[navigate]);
+
+    const handleLogin = async (e) => {
         e.preventDefault();
-        login(username, password);
+        try {
+            await login(username, password);
+            setErrorMessage("");
+            navigate("/dashboard");
+          } catch (error) {
+            setErrorMessage("Invalid username or password. Please try again.");
+          }
     }
 
     return <>
@@ -34,6 +48,7 @@ export default function WelcomePage(){
             <button>Register</button>
             </Link>
         </form>
+            {errorMessage && <p>{errorMessage}</p>}
         </div>
     </div>
     </>
