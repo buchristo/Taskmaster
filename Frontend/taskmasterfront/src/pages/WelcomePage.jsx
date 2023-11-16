@@ -12,6 +12,7 @@ export default function WelcomePage(){
 
     useEffect(() => {
         if (isAuthenticated()){
+            //how do i check which user is online at the moment?
             navigate("/dashboard");
         }
     },[navigate]);
@@ -21,7 +22,7 @@ export default function WelcomePage(){
         try {
             await login(username, password);
             setErrorMessage("");
-            navigate("/dashboard");
+            navigate(`/dashboard/${username}`);
           } catch (error) {
             setErrorMessage("Invalid username or password. Please try again.");
           }
