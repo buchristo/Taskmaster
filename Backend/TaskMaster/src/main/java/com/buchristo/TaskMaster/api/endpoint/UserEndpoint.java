@@ -28,8 +28,8 @@ public class UserEndpoint {
                 .orElseThrow(ElementNotFoundException::new);
     }
 
-    @GetMapping("/filter")
-    User getByName(@RequestParam String name) throws ElementNotFoundException {
+    @GetMapping("/find/{name}")
+    User getByName(@PathVariable String name) throws ElementNotFoundException {
         return userService.findByUsername(name)
                 .orElseThrow(ElementNotFoundException::new);
     }
