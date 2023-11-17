@@ -2,18 +2,19 @@ import { Link, useNavigate } from "react-router-dom"
 import '../styles/WelcomePage.css'
 import { useState, useEffect } from "react"
 import { login, isAuthenticated } from "../api/api";
+import { useStore } from "../statestore/useStore"
 
 export default function WelcomePage(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage ,setErrorMessage] = useState("");
+    const user = useStore((state) => state.user)
     const navigate = useNavigate();
 
     useEffect(() => {
         if (isAuthenticated()){
-            //how do i check which user is online at the moment?
-            navigate("/dashboard");
+            navigate(`/dashboard/${user.username}`);
         }
     },[navigate]);
 
