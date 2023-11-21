@@ -23,8 +23,11 @@ export default function ProjectCreator(){
             setErrorMessage("Your Project name must at least contain 3 characters!")
             return
         } else {
-            createProject(projectName, user.id)
-            navigate(`/dashboard/${user.username}`);
+            createProject(projectName, user.id);
+
+            setTimeout(() => {
+                navigate(`/dashboard/${user.username}`);
+            },100);
         }
     }
 

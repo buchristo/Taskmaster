@@ -13,15 +13,3 @@ export function login(username, password){
       })
       .catch((error) => console.log("ERROR: " + error));
 }
-
-export function isAuthenticated(){
-    const jwtToken = localStorage.getItem("jwt");
-
-    console.log(jwtToken);
-
-    if(jwtToken === null || jwtToken === ""){
-      return false;
-    } else {
-      return true;
-    }
-}

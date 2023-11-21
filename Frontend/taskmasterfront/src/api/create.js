@@ -1,7 +1,8 @@
 const PROJECTSERVER = "http://localhost:8080/projects";
-const jwtToken = localStorage.getItem("jwt");
 
-export function createProject(projectName, id){
+export function createProject(projectName, id){ 
+    const jwtToken = localStorage.getItem("jwt")
+    
     return fetch(`${PROJECTSERVER}/addToUser/${id}`, {
       method: "POST",
       headers: {
