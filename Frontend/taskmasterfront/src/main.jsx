@@ -8,6 +8,7 @@ import ErrorPage from './pages/ErrorPage.jsx'
 import WelcomePage from './pages/WelcomePage.jsx'
 import Register from './pages/Register.jsx'
 import Dashboard from './pages/Dashboard.jsx'
+import ProjectCreator from './pages/ProjectCreator.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,8 +25,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/:name",
-        element: <Dashboard />,
-      }
+        element: <Dashboard />
+      },
+      {
+        path: "/project/create",
+        element: <ProjectCreator />
+      },
     ],
     errorElement: <ErrorPage />
   }

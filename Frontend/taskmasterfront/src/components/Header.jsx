@@ -1,4 +1,5 @@
 import '../styles/Header.css'
+import { isAuthenticated } from '../api/api'
 import { Outlet, Link } from 'react-router-dom'
 
 function Header() {
@@ -12,6 +13,13 @@ function Header() {
             TaskMaster
           </Link>
         </li>
+        {isAuthenticated && 
+        <li>
+          <Link to="/project/create">
+            <button type='button'>Create Project</button>
+          </Link>
+        </li>
+        }
         <li>
           <Link to="/register">
             <button type="button">Register</button>
