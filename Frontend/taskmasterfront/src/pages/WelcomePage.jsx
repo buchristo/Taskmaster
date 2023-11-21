@@ -13,8 +13,10 @@ export default function WelcomePage(){
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (isAuthenticated()){
+        if (isAuthenticated() && user){
             navigate(`/dashboard/${user.username}`);
+        } else {
+            return;
         }
     },[navigate]);
 
