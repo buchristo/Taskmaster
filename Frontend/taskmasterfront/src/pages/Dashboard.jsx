@@ -1,5 +1,4 @@
-import { isAuthenticated } from "../api/api"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getUserByName } from "../api/userapi"
 import { useStore } from "../statestore/useStore"
@@ -12,7 +11,8 @@ export default function Dashboard(){
 
 
     useEffect(() => {
-        if(!isAuthenticated()){
+        const authenticated = localStorage.getItem('authenticated') === 'true';
+        if(!authenticated){
             navigate("/");
         }
         getUserByName(name).then((data) => setUser(data))

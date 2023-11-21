@@ -16,5 +16,12 @@ export function login(username, password){
 
 export function isAuthenticated(){
     const jwtToken = localStorage.getItem("jwt");
-    return !!jwtToken;
+
+    console.log(jwtToken);
+
+    if(jwtToken === null || jwtToken === ""){
+      return false;
+    } else {
+      return true;
+    }
 }

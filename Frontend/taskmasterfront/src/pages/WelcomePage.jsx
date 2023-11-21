@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import '../styles/WelcomePage.css'
 import { useState, useEffect } from "react"
-import { login, isAuthenticated } from "../api/api";
+import { login } from "../api/api";
 import { useStore } from "../statestore/useStore"
 
 export default function WelcomePage(){
@@ -9,11 +9,13 @@ export default function WelcomePage(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage ,setErrorMessage] = useState("");
-    const user = useStore((state) => state.user)
+    const user = useStore((state) => state.user);
+    const loginStore = useStore((state) => state.login);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (isAuthenticated() && user){
+        const authenticated = localStorage.getItem('authenticated') === 'true';
+        if (authenticated && user){
             navigate(`/dashboard/${user.username}`);
         } else {
             return;
@@ -25,6 +27,7 @@ export default function WelcomePage(){
         try {
             await login(username, password);
             setErrorMessage("");
+            loginStore();
             navigate(`/dashboard/${username}`);
           } catch (error) {
             setErrorMessage("Invalid username or password. Please try again.");

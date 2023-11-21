@@ -1,8 +1,9 @@
 import '../styles/Header.css'
-import { isAuthenticated } from '../api/api'
 import { Outlet, Link } from 'react-router-dom'
+import { useStore } from "../statestore/useStore"
 
 function Header() {
+  const authenticated = useStore((state) => state.authenticated);
 
   return (
     <div className="Header">
@@ -13,7 +14,7 @@ function Header() {
             TaskMaster
           </Link>
         </li>
-        {isAuthenticated && 
+        {authenticated && 
         <li>
           <Link to="/project/create">
             <button type='button'>Create Project</button>

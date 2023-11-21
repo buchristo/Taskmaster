@@ -1,12 +1,12 @@
-import { isAuthenticated } from "../api/api"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 
 export default function ProjectCreator(){
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!isAuthenticated()){
+        const authenticated = localStorage.getItem('authenticated') === 'true';
+        if(!authenticated){
             navigate("/");
         }
     },[navigate])
