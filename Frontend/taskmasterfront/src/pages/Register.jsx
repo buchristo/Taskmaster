@@ -8,6 +8,7 @@ export default function Register(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPass, setRepeatPass] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     function cancelRegistration(e){
         navigate("/");
@@ -17,13 +18,15 @@ export default function Register(){
         e.preventDefault();
 
         if(!name && !email && !password){
-            return console.log("Missing inputs!")
+            setErrorMessage("Missing inputs!")
+            return
         } else {
             if(password.length >= 4 && password === repeatPass){
                 newUser(name, email, password);
                 navigate("/");
             } else {
-                return console.log("password not matching!")
+                setErrorMessage("Password not matching!")
+                return
             }
         }
     }
@@ -48,6 +51,8 @@ export default function Register(){
                 Repeat Password:
                 <input type="password" onChange={(e) => setRepeatPass(e.target.value)}/>
             </label>
+            {errorMessage && 
+                <p>{errorMessage}</p>}
             <button>Register</button>
             <button onClick={cancelRegistration}>Cancel</button>
         </form>
