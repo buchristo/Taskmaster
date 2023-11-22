@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard.jsx'
 import ProjectCreator from './pages/ProjectCreator.jsx'
 import ProjectManager from './pages/ProjectManager.jsx'
 import TodoCreator from './pages/TodoCreator.jsx'
+import TodoUpdater from './pages/TodoUpdater.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,8 +39,12 @@ const router = createBrowserRouter([
         element: <ProjectManager />
       },
       {
-        path: "/todo/create/:id",
+        path: "/todo/create/:projectId",
         element: <TodoCreator />
+      },
+      {
+        path: "/todo/update/:todoId/:projectId",
+        element: <TodoUpdater />
       }
     ],
     errorElement: <ErrorPage />

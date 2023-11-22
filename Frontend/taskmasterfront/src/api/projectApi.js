@@ -59,7 +59,7 @@ export function addTaskToProject(projectId ,title, description, priority){
     body: JSON.stringify({
       title: title,
       description: description,
-      priorityType: priority
+      priorityType: priority,
     }),
   })
     .then((response) => {
@@ -90,5 +90,54 @@ export function deleteTask(taskId){
   })
   .catch((error) => {
     console.error("Error while making the DELETE request:", error);
+  });
+}
+
+export function findTaskById(taskId){
+  const jwtToken = localStorage.getItem("jwt")
+
+  return fetch(`${TODOSERVER}/${taskId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwtToken}`,
+    }
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    console.error("Error while making the GET request:", error);
+  });
+}
+
+export function updateTaskFromProject(projectId, todoId, title, description, priority, completed){
+  const jwtToken = localStorage.getItem("jwt")
+
+  return fetch(`${TODOSERVER}/update/${projectId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwtToken}`,
+    },
+    body: JSON.stringify({
+      id: todoId,
+      title: title,
+      description: description,
+      priorityType: priority,
+      completed: completed
+    })
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    console.error("Error while making the PUT request:", error);
   });
 }

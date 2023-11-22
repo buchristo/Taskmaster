@@ -1,4 +1,5 @@
 import "../styles/TodoTable.css";
+import { Link } from "react-router-dom";
 
 export default function TodoTable({project, deleteTask}){
 
@@ -20,7 +21,9 @@ return <div className="TodoTable">
                         <td>{task.description}</td>
                         <td>{task.priorityType}</td>
                         <td className="buttonTd">
-                            <button>Update</button>
+                            <Link to={`/todo/update/${task.id}/${project.id}`}>
+                                <button>Update</button>
+                            </Link>
                             <button onClick={() => deleteTask(task.id)}>Delete</button>
                         </td>
                         <td>

@@ -1,18 +1,27 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useStore } from "../statestore/useStore.js"
-import { addTaskToProject } from "../api/projectApi.js";
+import { addTaskToProject, updateTaskFromProject } from "../api/projectApi.js";
 
-export default function TodoForm({projectId}){
+export default function TodoForm({projectId, todo}){
     const navigate = useNavigate();
     const user = useStore((state) => state.user);
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [priority, setPriority] = useState("");
+    const [title, setTitle] = useState(todo?.title ?? "");
+    const [description, setDescription] = useState(todo?.description ?? "");
+    const [priority, setPriority] = useState(todo?.priorityType ?? "LOW");
+    const [completed, setCompleted] = useState(todo?.completed ?? false);
 
     function handleForm(e){
         e.preventDefault();
 
+        if(todo) {
+            updateTaskFromProject(projectId, todo.id, title, description, priority, completed);
+            setTimeout(() => {
+                navigate(`/projectmanager/${projectId}`);
+            },100)
+            return;
+        }
+    
         addTaskToProject(projectId, title, description, priority);
         navigate(`/projectmanager/${projectId}`);
     }
@@ -25,21 +34,21 @@ export default function TodoForm({projectId}){
         <form onSubmit={handleForm}>
             <label>
                 Title:
-                <input type="text" onChange={(e) => setTitle(e.target.value)}/>
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
             </label>
             <label>
                 Descripton:
-                <input type="text" onChange={(e) => setDescription(e.target.value)}/>
+                <input type="text" value={description} onChange={(e) => setDescription(e.target.value)}/>
             </label>
             <label>
                 Priority:
-                <select onChange={(e) => setPriority(e.target.value)}>
+                <select value={priority} onChange={(e) => setPriority(e.target.value)}>
                     <option value="LOW">Low</option>
                     <option value="MEDIUM">Medium</option>
                     <option value="HIGH">High</option>
                 </select>
             </label>
-            <button>Create</button>
+            <button>Done</button>
             <button onClick={cancelCreate}>Cancel</button>
         </form>
     </div>
