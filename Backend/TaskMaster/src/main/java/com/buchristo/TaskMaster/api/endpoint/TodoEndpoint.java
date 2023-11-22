@@ -20,6 +20,12 @@ public class TodoEndpoint {
         this.projectService = projectService;
     }
 
+    @GetMapping("{id}")
+    Todo findById(@PathVariable Long id) throws ElementNotFoundException {
+        return todoService.findById(id)
+                .orElseThrow(ElementNotFoundException::new);
+    }
+
     @PostMapping("/addToProject/{projectId}")
     Todo assignTodoToProject(@RequestBody Todo todo, @PathVariable Long projectId) throws ElementNotFoundException {
         Project project = projectService.findById(projectId)

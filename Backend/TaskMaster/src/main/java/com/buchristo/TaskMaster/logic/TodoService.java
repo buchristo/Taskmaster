@@ -6,6 +6,7 @@ import com.buchristo.TaskMaster.persistence.repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -15,6 +16,8 @@ public class TodoService {
     public TodoService(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
     }
+
+    public Optional<Todo> findById(Long id) { return todoRepository.findById(id); }
 
     public Todo addTodoToProject(Todo todo, Project project) {
         todo.setProject(project);
