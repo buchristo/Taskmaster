@@ -1,4 +1,5 @@
 const PROJECTSERVER = "http://localhost:8080/projects";
+const TODOSERVER = "http://localhost:8080/todos";
 
 export function createProject(projectName, id){ 
   const jwtToken = localStorage.getItem("jwt")
@@ -44,4 +45,30 @@ export function findProjectById(id){
   .catch((error) => {
     console.error("Error while making the GET request:", error);
   });
+}
+
+export function addTaskToProject(projectId ,title, description, priority){
+  const jwtToken = localStorage.getItem("jwt")
+  
+  return fetch(`${TODOSERVER}/addToProject/${projectId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwtToken}`,
+    },
+    body: JSON.stringify({
+      title: title,
+      description: description,
+      priorityType: priority
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error while making the POST request:", error);
+    });
 }

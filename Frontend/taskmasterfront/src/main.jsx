@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <ProjectManager />
       },
       {
-        path: "/todo/create",
+        path: "/todo/create/:id",
         element: <TodoCreator />
       }
     ],

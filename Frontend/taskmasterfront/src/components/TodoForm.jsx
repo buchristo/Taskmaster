@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useStore } from "../statestore/useStore.js"
+import { addTaskToProject } from "../api/projectApi.js";
 
-export default function TodoForm({}){
+export default function TodoForm({projectId}){
     const navigate = useNavigate();
     const user = useStore((state) => state.user);
     const [title, setTitle] = useState("");
@@ -11,7 +12,9 @@ export default function TodoForm({}){
 
     function handleForm(e){
         e.preventDefault();
-        console.log(title, description, priority);
+
+        addTaskToProject(projectId, title, description, priority);
+        navigate(`/projectmanager/${projectId}`);
     }
 
     function cancelCreate(){

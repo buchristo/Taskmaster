@@ -18,7 +18,7 @@ export default function ProjectManager(){
     <div className="ProjectManager">
         <h1>{project && project.name}</h1>
         <div className="projectButtons">
-            <Link to={"/todo/create"}>
+            <Link to={`/todo/create/${id}`}>
                 <button type="button">Add new Task</button>
             </Link>
         </div>
