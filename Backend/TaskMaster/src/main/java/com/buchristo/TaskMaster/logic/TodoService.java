@@ -18,6 +18,7 @@ public class TodoService {
 
     public Todo addTodoToProject(Todo todo, Project project) {
         todo.setProject(project);
+        todo.setisCompleted(false);
         return todoRepository.save(todo);
     }
 
