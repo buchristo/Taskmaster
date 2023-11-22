@@ -11,4 +11,10 @@
     margin-bottom: 20px;
     color: #f39c12;
   }
+
+  .projectButtons {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+  }
   

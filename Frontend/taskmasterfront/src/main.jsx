@@ -10,6 +10,7 @@ import Register from './pages/Register.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import ProjectCreator from './pages/ProjectCreator.jsx'
 import ProjectManager from './pages/ProjectManager.jsx'
+import TodoCreator from './pages/TodoCreator.jsx'
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: "/projectmanager/:id",
         element: <ProjectManager />
       },
+      {
+        path: "/todo/create",
+        element: <TodoCreator />
+      }
     ],
     errorElement: <ErrorPage />
   }

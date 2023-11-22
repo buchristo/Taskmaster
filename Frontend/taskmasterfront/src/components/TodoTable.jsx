@@ -9,6 +9,7 @@ return <div className="TodoTable">
                     <th>Title</th>
                     <th>Description</th>
                     <th>Priority</th>
+                    <th></th>
                     <th>Complete</th>
                 </tr>
             </thead>
@@ -18,6 +19,10 @@ return <div className="TodoTable">
                         <td>{task.title}</td>
                         <td>{task.description}</td>
                         <td>{task.priorityType}</td>
+                        <td className="buttonTd">
+                            <button>Update</button>
+                            <button>Delete</button>
+                        </td>
                         <td>
                             {task.completed === false ? (
                                 <input type="checkbox"></input>) : (
