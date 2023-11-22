@@ -1,6 +1,6 @@
 import "../styles/TodoTable.css";
 
-export default function TodoTable({project}){
+export default function TodoTable({project, deleteTask}){
 
 return <div className="TodoTable">
         <table>
@@ -21,7 +21,7 @@ return <div className="TodoTable">
                         <td>{task.priorityType}</td>
                         <td className="buttonTd">
                             <button>Update</button>
-                            <button>Delete</button>
+                            <button onClick={() => deleteTask(task.id)}>Delete</button>
                         </td>
                         <td>
                             {task.completed === false ? (

@@ -72,3 +72,23 @@ export function addTaskToProject(projectId ,title, description, priority){
       console.error("Error while making the POST request:", error);
     });
 }
+
+export function deleteTask(taskId){
+  const jwtToken = localStorage.getItem("jwt")
+
+  return fetch(`${TODOSERVER}/${taskId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return console.log("deleted");
+  })
+  .catch((error) => {
+    console.error("Error while making the DELETE request:", error);
+  });
+}

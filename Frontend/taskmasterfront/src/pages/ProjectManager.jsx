@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
-import { findProjectById } from "../api/projectApi";
+import { findProjectById, deleteTask } from "../api/projectApi";
 import TodoTable from "../components/TodoTable";
 import "../styles/ProjectManager.css"
 
@@ -10,9 +10,15 @@ export default function ProjectManager(){
     const [project, setProject] = useState();
 
     useEffect(() => {
-
         findProjectById(id).then((data) => setProject(data));
-    },[navigate]);
+    },[navigate, setProject]);
+
+    function handleDelete(taskId){
+        deleteTask(taskId);
+        setTimeout(() => {
+            findProjectById(id).then((data) => setProject(data));
+        }, 100);
+    }
 
     return <>
     <div className="ProjectManager">
@@ -24,6 +30,7 @@ export default function ProjectManager(){
         </div>
         <TodoTable 
             project = {project}
+            deleteTask = {handleDelete}
         />
     </div>
     </>
