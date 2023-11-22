@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { findProjectById } from "../api/projectApi";
 import TodoTable from "../components/TodoTable";
+import "../styles/ProjectManager.css"
 
 export default function ProjectManager(){
     const {id} = useParams();
@@ -14,9 +15,11 @@ export default function ProjectManager(){
     },[navigate]);
 
     return <>
+    <div className="ProjectManager">
         <h1>{project && project.name}</h1>
         <TodoTable 
             project = {project}
         />
+    </div>
     </>
 }

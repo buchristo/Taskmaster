@@ -1,4 +1,4 @@
-
+import "../styles/TodoTable.css";
 
 export default function TodoTable({project}){
 
