@@ -76,7 +76,7 @@ public class Todo {
         return isCompleted;
     }
 
-    public void setisCompleted(boolean completed) {
+    public void setIsCompleted(boolean completed) {
         isCompleted = completed;
     }
 }
