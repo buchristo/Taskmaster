@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { useStore } from "../statestore/useStore";
-import { createProject } from "../api/create";
+import { createProject } from "../api/projectApi";
 
 export default function ProjectCreator(){
     const navigate = useNavigate();

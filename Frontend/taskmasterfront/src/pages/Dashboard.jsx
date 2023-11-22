@@ -28,7 +28,7 @@ export default function Dashboard(){
                 <div key={project.id} className="project-card">
                     <h2>{project.name}</h2>
                     <p>Remaining Tasks:</p>
-                    <button onClick={() => navigate(`/project/${project.id}`)}>
+                    <button onClick={() => navigate(`/projectmanager/${project.id}`)}>
                         Manage Project
                     </button>
                 </div>

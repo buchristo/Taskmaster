@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import '../styles/WelcomePage.css'
 import { useState, useEffect } from "react"
-import { login } from "../api/api";
+import { login } from "../api/loginApi";
 import { useStore } from "../statestore/useStore"
 
 export default function WelcomePage(){
