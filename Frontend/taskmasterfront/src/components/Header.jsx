@@ -8,6 +8,7 @@ function Header() {
   const authenticated = useStore((state) => state.authenticated);
   const logoutStore = useStore((state) => state.logout);
   const setUser = useStore((state) => state.setUser);
+  const user = useStore((state) => state.user);
 
   function handleLogout(){
     setUser(null);
