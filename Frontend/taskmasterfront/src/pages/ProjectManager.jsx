@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
-import { findProjectById, deleteTask } from "../api/projectApi";
+import { findProjectById, deleteTask, updateTaskFromProject } from "../api/projectApi";
 import TodoTable from "../components/TodoTable";
 import "../styles/ProjectManager.css"
 
@@ -20,6 +20,10 @@ export default function ProjectManager(){
         }, 100);
     }
 
+    function changeStatus(projectId, todoId, title, description, priority, status){
+        updateTaskFromProject(projectId, todoId, title, description, priority, status);
+    }
+
     return <>
     <div className="ProjectManager">
         <h1>{project && project.name}</h1>
@@ -31,6 +35,7 @@ export default function ProjectManager(){
         <TodoTable 
             project = {project}
             deleteTask = {handleDelete}
+            todoStatus = {changeStatus}
         />
     </div>
     </>

@@ -60,6 +60,7 @@ export function addTaskToProject(projectId ,title, description, priority){
       title: title,
       description: description,
       priorityType: priority,
+      isCompleted: false
     }),
   })
     .then((response) => {
@@ -128,7 +129,7 @@ export function updateTaskFromProject(projectId, todoId, title, description, pri
       title: title,
       description: description,
       priorityType: priority,
-      completed: completed
+      isCompleted: completed
     })
   })
   .then((response) => {

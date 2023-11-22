@@ -1,7 +1,7 @@
 import "../styles/TodoTable.css";
 import { Link } from "react-router-dom";
 
-export default function TodoTable({project, deleteTask}){
+export default function TodoTable({project, deleteTask, todoStatus}){
 
 return <div className="TodoTable">
         <table>
@@ -28,8 +28,13 @@ return <div className="TodoTable">
                         </td>
                         <td>
                             {task.completed === false ? (
-                                <input type="checkbox"></input>) : (
-                                <input type="checkbox" defaultChecked={true}></input>
+                                <input type="checkbox"
+                                    onChange={() => todoStatus(project.id, task.id, task.title, task.description, task.priorityType, true)}>
+                                </input>) : (
+                                <input type="checkbox"
+                                    defaultChecked={true}
+                                    onChange={() => todoStatus(project.id, task.id, task.title, task.description, task.priorityType, false)}>
+                                </input>
                             )}
                         </td>
                     </tr>
