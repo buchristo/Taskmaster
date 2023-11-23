@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { useStore } from "../statestore/useStore";
 import { createProject } from "../api/projectApi";
+import "../styles/ProjectCreator.css"
 
 export default function ProjectCreator(){
     const navigate = useNavigate();
@@ -44,8 +45,8 @@ export default function ProjectCreator(){
                 <input type="text" onChange={(e) => setProjectName(e.target.value)}/>
             </label>
             {errorMessage && <p>{errorMessage}</p>}
-            <button>Create</button>
-            <button onClick={cancelCreate}>Cancel</button>
+            <button className="createButton" type="submit" >Create</button>
+            <button className="cancelButton" type="button" onClick={cancelCreate}>Cancel</button>
         </form>
     </div>
     </>
