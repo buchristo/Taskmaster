@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useStore } from "../statestore/useStore.js"
 import { addTaskToProject, updateTaskFromProject } from "../api/projectApi.js";
+import "../styles/TodoForm.css"
 
 export default function TodoForm({projectId, todo}){
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function TodoForm({projectId, todo}){
         navigate(`/dashboard/${user.username}`);
     }
 
-    return <div>
+    return <div className="todoForm">
         <form onSubmit={handleForm}>
             <label>
                 Title:
