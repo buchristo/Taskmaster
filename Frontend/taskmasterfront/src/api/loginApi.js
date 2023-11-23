@@ -9,7 +9,6 @@ export function login(username, password){
       .then((res) => res.text())
       .then(jwt => {
         localStorage.setItem("jwt", jwt);
-        console.log(jwt);
       })
       .catch((error) => console.log("ERROR: " + error));
 }

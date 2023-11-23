@@ -23,7 +23,9 @@ export default function TodoForm({projectId, todo}){
         }
     
         addTaskToProject(projectId, title, description, priority);
-        navigate(`/projectmanager/${projectId}`);
+        setTimeout(() => {
+            navigate(`/projectmanager/${projectId}`);
+        },100)
     }
 
     function cancelCreate(){
