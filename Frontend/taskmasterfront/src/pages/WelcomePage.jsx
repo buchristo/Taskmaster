@@ -25,10 +25,15 @@ export default function WelcomePage(){
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            await login(username, password);
-            setErrorMessage("");
-            loginStore();
-            navigate(`/dashboard/${username}`);
+            await login(username, password)
+
+            if (localStorage.getItem("jwt")) {
+                setErrorMessage("");
+                loginStore();
+                navigate(`/dashboard/${username}`);
+            } else {
+                setErrorMessage("Invalid username or password. Please try again.");
+            }
           } catch (error) {
             setErrorMessage("Invalid username or password. Please try again.");
           }

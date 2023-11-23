@@ -30,7 +30,7 @@ export default function TodoForm({projectId, todo}){
     }
 
     function cancelCreate(){
-        navigate(`/dashboard/${user.username}`);
+        navigate(`/projectmanager/${projectId}`);
     }
 
     return <div className="todoForm">
