@@ -29,7 +29,9 @@ public class UserService {
     }
 
     public Optional<User> findByUsername(String name) {
-        return userRepository.findByUsername(name);
+        Optional<User> user = userRepository.findByUsername(name);
+        user.get().setPassword(null);
+        return user;
     }
 
     public void delete(Long id) {
