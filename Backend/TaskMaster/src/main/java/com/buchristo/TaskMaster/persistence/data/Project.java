@@ -13,7 +13,7 @@ public class Project {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private Set<Todo> tasks;
     @ManyToOne
     @JsonIgnore
